@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    .bodyContent {
+      padding: 10px;
+    }
+    .section + .section {
+      margin-top: 35px;
+    }
+    .header {
+      font-weight: bold;
+      font-size: 18px;
+      color: #dd4b39;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+    .description {
+      font-size: 14px;
+    }
+    .label {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .textInput {
+      width: 110px;
+      height: 28px;
+    }
+    .wideTextInput {
+      width: 100%;
+    }
+    .button {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  </style>
+
+  <script>
+    google.script.run
+      .withSuccessHandler(setValueOnInput)
+      .withUserObject('refresh_range')
+      .onGetRefreshRangeButtonClick();
+
+    function onSelectSheetButtonClick(updateId) {
+      google.script.run
+        .withSuccessHandler(setValueOnInput)
+        .withUserObject(updateId)
+        .getActiveSheetName();
+    }
+
+    function onSelectCellButtonClick(updateId) {
+      google.script.run
+        .withSuccessHandler(setValueOnInput)
+        .withUserObject(updateId)
+        .getActiveCell();
+    }
+
+    function onSelectRangeButtonClick(updateId) {
+      google.script.run
+        .withSuccessHandler(setValueOnInput)
+        .withUserObject(updateId)
+        .getActiveRange();
+    }
+
+    function setValueOnInput(value, updateId) {
+      document.getElementById(updateId).value = value || '';
+    }
+
+    function onSetRefreshRangeButtonClick() {
+      google.script.run
+        .onSetRefreshRangeButtonClick(
+          getInputValue('refresh_range'));
+    }
+
+    function onGetRefreshRangeButtonClick() {
+      google.script.run
+        .withSuccessHandler(setValueOnInput)
+        .withUserObject('refresh_range')
+        .onGetRefreshRangeButtonClick();
+    }
+    
+    function onClearRefreshRangeButtonClick() {
+      google.script.run
+        .onClearRefreshRangeButtonClick();
+        
+      clearInput('refresh_range');
+    }
+    
+    function onGenerateFormulasButtonClick() {
+      google.script.run
+        .onGenerateFormulasButtonClick(
+          getInputValue('data_sheet_name'), 
+          getInputValue('data_key_range'), 
+          getInputValue('data_value_range'), 
+          getInputValue('target_sheet_name'), 
+          getInputValue('target_key_range'), 
+          getInputValue('target_value_range'), 
+          getInputValue('target_output_range'), 
+          getInputValue('formula_template'));
+    }
+
+    function getInputValue(id) {
+      return getElement(id).value;
+    }
+    
+    function clearInput(id) {
+      return getElement(id).value = '';
+    }
+    
+    function getElement(id) {
+      return document.getElementById(id);
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="bodyContent" class="sidebar branding-below">
+
+    <div class="section">
+      <p class="header">Formula Refresher</p>
+      <p class="description">
+        Select a range of cells to occasionally refresh in order to
+        force formulas to recalculate even when there are no changes.
+      </p>
+      <p class="description">
+        Refreshes are necessary for custom third-party formulas that return 
+        live data from the internet. The formulas would otherwise only be
+        recalculated when the inputs change, which may never be the case.
+      </p>
+      <p class="description">
+        The active sheet can be refreshed by clicking the Refresh button.
+        All sheets, active and inactive, are refreshed automatically on a 15 minute interval.
+      </p>
+
+      <div class="block">
+        <p class="label">Range to Refresh:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="refresh_range" type="text" class="textInput" placeholder="A1:A5" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectRangeButtonClick('refresh_range')">Select Range</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div>
+          <div class="inline form-group">
+            <button class="action button submit" onclick="onSetRefreshRangeButtonClick()">Set Range</button>
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onGetRefreshRangeButtonClick()">Get Range</button>
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onClearRefreshRangeButtonClick()">Clear Range</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="header">Formula Generator</p>
+      <p class="description">
+        Relate cells and generate formulas in different areas of the spreadsheet by using linking information such as ids and dates.
+      </p>
+      <p class="description">
+        This add-on was designed with currency exchange rate calculations in mind and works well even when 
+        currency exchange dates, i.e. keys, are defined out-of-order and in different tables or sheets.
+      </p>
+      
+      <div class="block">
+        <p class="label">Data Sheet:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="data_sheet_name" type="text" class="textInput" placeholder="Sheet Name" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectSheetButtonClick('data_sheet_name')">Select Sheet</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Data Key Range:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="data_key_range" type="text" class="textInput" placeholder="A1:A5" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectRangeButtonClick('data_key_range')">Select Range</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Data Value Range:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="data_value_range" type="text" class="textInput" placeholder="B1:B5" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectRangeButtonClick('data_value_range')">Select Range</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Target Sheet:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="target_sheet_name" type="text" class="textInput" placeholder="Sheet Name" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectSheetButtonClick('target_sheet_name')">Select Sheet</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Target Key Range:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="target_key_range" type="text" class="textInput" placeholder="A1:A5" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectRangeButtonClick('target_key_range')">Select Range</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Target Value Range:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="target_value_range" type="text" class="textInput" placeholder="B1:B5" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectRangeButtonClick('target_value_range')">Select range</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="block">
+        <p class="label">Target Output Range:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="target_output_range" type="text" class="textInput" placeholder="C1:C5" />
+          </div>
+          <div class="inline form-group">
+            <button class="button" onclick="onSelectRangeButtonClick('target_output_range')">Select range</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Formula Template:</p>
+        <div>
+          <div class="inline form-group">
+            <input id="formula_template" type="text" class="textInput, wideTextInput" placeholder="=@target*@data" value="=@target*@data"/>
+          </div>
+        </div>
+        <p class="description">Note that @target and @data will be replaced with the mapped values.</p>
+      </div>
+      
+      <div class="block">
+        <button class="action button submit" onclick="onGenerateFormulasButtonClick()">Map &amp; Generate</button>
+      </div>
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>
