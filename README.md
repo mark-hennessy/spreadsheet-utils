@@ -10,7 +10,7 @@ The active sheet can be refreshed by clicking the Set Range button. All sheets, 
 
 FYI, I created Formula Refresher to make it easier to get up-to-date Bitcoin prices in my spreadsheet. I found a CRYPTOFINANCE formula that someone else created online, but had trouble forcing the live price data to refresh. 
 
-Here's the info for the CRYPTOFINANCE formula.
+Here's the info for the CRYPTOFINANCE formula:
 
 =CRYPTOFINANCE("BTC/EUR", "change", "24h")
 
