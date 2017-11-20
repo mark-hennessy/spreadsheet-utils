@@ -43,3 +43,5 @@ To install this add-on:
 2. Navigate to Tools -> Script Editor
 3. Create a new project and copy the Code.gs and Page.html files
 4. Navigate to Run -> Test as add-on...
+5. Select a spreadsheet to deploy against
+6. In the spreadsheet, navigate to Add-ons -> Spreadsheet Utils -> Show
