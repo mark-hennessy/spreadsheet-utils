@@ -43,3 +43,10 @@ To install this add-on:
 4. Navigate to Run -> Test as add-on...
 5. Select a spreadsheet to deploy against
 6. In the spreadsheet, navigate to Add-ons -> Spreadsheet Utils -> Show
+
+## Screenshots
+![Formula Refresher UI](https://github.com/mark-hennessy/spreadsheet-utils/blob/master/screenshots/formula_refresher_ui.png)
+
+![Formula Generator UI - Part 1](https://github.com/mark-hennessy/spreadsheet-utils/blob/master/screenshots/formula_generator_ui_part1.png)
+
+![Formula Generator UI - Part 2](https://github.com/mark-hennessy/spreadsheet-utils/blob/master/screenshots/formula_generator_ui_part2.png)
