@@ -8,9 +8,7 @@ Refreshes are necessary for custom third-party formulas that return live data fr
 
 The active sheet can be refreshed by clicking the Set Range button. The add-on will refresh all sheets with ranges set automatically every 15 minutes.
 
-FYI, I created Formula Refresher to make it easier to get up-to-date Bitcoin prices in my spreadsheet. I found a CRYPTOFINANCE formula that someone else created online, but had trouble forcing the live price data to refresh. 
-
-Here's the info for the CRYPTOFINANCE formula:
+I created Formula Refresher to make it easier to get up-to-date Bitcoin prices in my spreadsheet in combination with a third-party CRYPTOFINANCE formula that someone else created. Here's the info for the CRYPTOFINANCE formula:
 
 =CRYPTOFINANCE("BTC/EUR", "change", "24h")
 
@@ -22,7 +20,7 @@ You can change the refresh interval in the script editor. Just be aware that the
 
 [Limits Document](https://developers.google.com/apps-script/guides/services/quotas)
 
-Also note that an automated refresh may interrupt/cancel a manual formula entry taking place at the same time. 
+Note that an automated refresh may interrupt/cancel a manual formula entry taking place at the same time. 
 
 ## Formula Generator
 Relate cells and generate formulas in different areas of the spreadsheet by using linking information such as ids and dates.
