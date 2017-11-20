@@ -51,7 +51,7 @@ To install this add-on:
 
 ![Formula Generator UI - Part 2](screenshots/formula_generator_ui_part2.png)
 
-## License & copyright
+## License & Copyright
 © Mark Hennessy
 
 Licensed under the [MIT License](LICENSE)
