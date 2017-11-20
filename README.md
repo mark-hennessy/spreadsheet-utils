@@ -45,8 +45,8 @@ To install this add-on:
 6. In the spreadsheet, navigate to Add-ons -> Spreadsheet Utils -> Show
 
 ## Screenshots
-![Formula Refresher UI](https://github.com/mark-hennessy/spreadsheet-utils/blob/master/screenshots/formula_refresher_ui.png)
+![Formula Refresher UI](screenshots/formula_refresher_ui.png)
 
-![Formula Generator UI - Part 1](https://github.com/mark-hennessy/spreadsheet-utils/blob/master/screenshots/formula_generator_ui_part1.png)
+![Formula Generator UI - Part 1](screenshots/formula_generator_ui_part1.png)
 
-![Formula Generator UI - Part 2](https://github.com/mark-hennessy/spreadsheet-utils/blob/master/screenshots/formula_generator_ui_part2.png)
+![Formula Generator UI - Part 2](screenshots/formula_generator_ui_part2.png)
