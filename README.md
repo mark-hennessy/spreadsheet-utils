@@ -18,7 +18,7 @@ Here's the info for the CRYPTOFINANCE formula:
 
 [CRYPTOFINANCE Blog Post](https://jbuty.com/how-to-get-crypto-currencies-rates-and-more-in-google-sheet-1a57e571bc14)
 
-You can change the refresh interval in the script editor. Just be aware that the Sheets API limits you to 20,000 HTTP requests per day. If you refresh hundreds of formulas that make HTTP requests on a 1 minute interval, then it won't take very long before the formulas start returning errors telling you to wait for 24 hours. 
+You can change the refresh interval in the script editor. Just be aware that the Sheets API limits you to 20,000 HTTP requests per day. If you refresh hundreds of formulas that make HTTP requests on a 1 minute interval, then it won't take long before the formulas start returning errors telling you to wait for 24 hours. 
 
 [Limits Document](https://developers.google.com/apps-script/guides/services/quotas)
 
