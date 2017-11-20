@@ -6,7 +6,7 @@ Select a range of cells to occasionally refresh in order to force formulas to re
 
 Refreshes are necessary for custom third-party formulas that return live data from the internet. The formulas would otherwise only be recalculated when the inputs change, which may never be the case.
 
-The active sheet can be refreshed by clicking the Set Range button. All sheets, active and inactive, are refreshed automatically on a 15 minute interval.
+The active sheet can be refreshed by clicking the Set Range button. The add-on will refresh all sheets with ranges set automatically every 15 minutes.
 
 FYI, I created Formula Refresher to make it easier to get up-to-date Bitcoin prices in my spreadsheet. I found a CRYPTOFINANCE formula that someone else created online, but had trouble forcing the live price data to refresh. 
 
