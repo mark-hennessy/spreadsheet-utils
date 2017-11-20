@@ -1,4 +1,4 @@
-# spreadsheet-utils
+# Spreadsheet Utils
 Custom Google Sheets add-on for timed formula refreshes and cell mapping.
 
 ## Formula Refresher
